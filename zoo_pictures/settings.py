@@ -69,8 +69,12 @@ WSGI_APPLICATION = 'zoo_pictures.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': f'{os.environ.get("POSTGRES_DB_NAME")}',
+        'USER': f'{os.environ.get("POSTGRES_USER")}',
+        'PASSWORD': f'{os.environ.get("POSTGRES_PASSWORD")}',
+        'HOST': f'{os.environ.get("POSTGRES_DB_HOST")}',
+        'PORT': f'{os.environ.get("POSTGRES_DB_PORT")}',
     }
 }
 
@@ -99,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -112,6 +116,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
