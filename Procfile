@@ -1,1 +1,1 @@
-web: gunicorn zoo-pictures.wsgi
+web: gunicorn zoo_pictures.wsgi
