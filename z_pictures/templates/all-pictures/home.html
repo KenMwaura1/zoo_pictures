@@ -22,7 +22,7 @@
 
                     <li class="pb-5">
 
-                        <a target="_blank" href="https://mdbootstrap.com/forums/forum/support/"
+                        <a href="#main"
                            class="mb-5 btn btn-danger btn-rounded" rel="nofollow">See more</a>
 
                     </li>
@@ -41,7 +41,7 @@
         <div class="row mt-5">
 
             <!-- Main news --->
-            <div class="col-xl-12 col-md-12">
+            <div class="col-xl-12 col-md-12 " id="main">
 
                 <h4 class="font-weight-bold"><strong>GALLERY </strong></h4>
 
@@ -62,14 +62,42 @@
                                 <!-- Card image --->
                                 <div class="view overlay">
 
-                                    <img class="card-img-top" src="{{ image.image.url }}">
+                                    <img class="card-img-top" src="{{ image.image.url }}" alt="{{ image.name }}" />
 
-                                    <a href="#!">
+                                    <a href="" data-toggle="modal" data-target="#b{{ image.id }}">
 
                                         <div class="mask rgba-white-slight"></div>
 
                                     </a>
 
+
+                                </div>
+                                <div class="modal fade " id="b{{ image.id }}" tabindex="-1" role="dialog"
+                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered " role="document">
+                                        <div class="modal-content modalcard">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="imageheader">{{image.name}}</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="{{image.image.url}}" alt="{{image.name}}" class="img-fluid">
+                                                <p class=" text-center">{{image.description}}</p>
+                                                <span class="btn btn-sm btn-dark-green white-text rounded-pill">{{image.category}}</span> <a
+                                                    href="/location/{{image.location}}/" class="btn btn-sm indigo white-text rounded-pill">{{image.location}}</a>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="col-md-7">
+                                                    <input class="form-control input-sm" type="text" value="{{image.image.url}}" id="{{image.id}}.url">
+                                                </div>
+
+                                                <button class="btn btn-success btn-sm ripe-malinka-gradient rounded-pill" onclick="copyLink('{{image.id}}.url')">Copy</button>
+                                                <button type="button" class="btn  btn-sm peach-gradient rounded-pill" data-dismiss="modal">Close </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- Card image --->
 
@@ -97,8 +125,10 @@
                             </div>
                             <!-- Card --->
 
+
                         </div>
                         <!-- Grid column --->
+
                         {% endfor %}
                     </div>
                 </section>
@@ -106,5 +136,43 @@
             </div>
         </div>
     </div>
+    <section>
+
+        <div class="col-xl-11 col-md-12 mb-5 mt-4">
+
+            <!-- Grid row --->
+            <div class="row">
+
+                <!-- Grid column --->
+                <div class="col-lg-4 col-md-12">
+
+                    <!-- Section: Categories --->
+                    <section class="section mb-5" id="categories">
+
+                        <h4 class="font-weight-bold"><strong>CATEGORIES</strong></h4>
+
+                        <hr class="red">
+
+                        <ul class="list-group z-depth-1 mt-4">
+
+                            {% for location in all_locations %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                                <a class="btn aqua-gradient btn-sm rounded-pill" id="btn"
+                                   href="/location/{{location.name}}/">{{location.name}}</a>
+
+                                <span class="badge badge-danger badge-pill">{{ forloop.revcounter }}</span>
+
+                            </li>
+                            {% endfor  %}
+                        </ul>
+
+                    </section>
+                    <!-- Section: Categories --->
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 {% endblock %}
