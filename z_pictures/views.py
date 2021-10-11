@@ -12,8 +12,16 @@ def home(request):
                                                       'all_categories': all_categories})
 
 
-def search(request,):
-    return None
+def search(request):
+    if 'search' in request.GET and request.GET['search']:
+        category = request.GET.get("search")
+        searched_images = Image.search_by_category(category)
+        message = f"{category}"
+        print(searched_images)
+        return render(request, 'all-pictures/search_results.html', {"message": message, "images": searched_images})
+    else:
+        message = "You haven't searched for any image category"
+        return render(request, 'all-pictures/search_results.html', {"message": message})
 
 
 def location(request, location):
