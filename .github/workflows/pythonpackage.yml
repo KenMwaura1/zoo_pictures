@@ -72,9 +72,10 @@ jobs:
         POSTGRES_DB: ${{ matrix.database-name }}
 
       run: |
-        export SECRET_KEY=django-insecure-kf_ial&*3ng4jp9@*+
+        export SECRET_KEY="django-insecure-kf_ial&*3ng4jp9@*"
         export MODE=dev
         export ALLOWED_HOSTS=".localhost, .herokuapp.com, .127.0.0.1"
         export DISABLE_COLLECTSTATIC=1
+        export DEBUG=True
         python manage.py test
 
