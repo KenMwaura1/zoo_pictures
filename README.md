@@ -28,9 +28,14 @@ Images by Location
 
 ![images by location](static/images/2021-10-11_20-30-Zoo-pictures-3.png)
 
+Image details Modal 
+
+![image details](static/images/2021-10-11_20-39-Zoo-pictures-4.png)
+
 ## Live Site
 
 [link to deployed site](https://zoo-pictures.herokuapp.com/)
+
 
 ## Setup Instructions / Installation
 
