@@ -46,7 +46,7 @@ As a user of the application I should be able to:
 3. Create a virtual environment
 
    ```shell
-      python3 -m venv venv 
+    python3 -m venv venv 
    ```
 
     * Activate the virtual environment
@@ -60,7 +60,7 @@ As a user of the application I should be able to:
   3a. Create a virtualenv
 
    ```
-       pyenv virtualenv zoo_pictures
+   pyenv virtualenv zoo_pictures
    ```
 
   3b. Activate the virtualenv
