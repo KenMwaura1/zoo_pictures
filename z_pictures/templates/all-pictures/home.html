@@ -1,5 +1,110 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1 class="h1 cyan-text"> Test</h1>
+    <section>
+
+        <div style="background-image: url('https://mdbootstrap.com/img/Photos/Others/slide4.jpg'); background-repeat: no-repeat; background-size: cover;">
+            <!-- Caption --->
+            <div class="full-bg-img  flex-center white-text rgba-stylish-strong">
+
+                <ul class="animated fadeIn col-md-12 list-unstyled">
+
+                    <li>
+
+                        <h1 class="h1-responsive font-weight-bold mt-5 pt-5 ">Welcome to Zoo pictures</h1>
+
+                    </li>
+
+                    <li>
+
+                        <p>A curated gallery of pictures by me</p>
+
+                    </li>
+
+                    <li class="pb-5">
+
+                        <a target="_blank" href="https://mdbootstrap.com/forums/forum/support/"
+                           class="mb-5 btn btn-danger btn-rounded" rel="nofollow">See more</a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- Caption --->
+
+        </div>
+
+    </section>
     <button class="btn btn-md peach-gradient rounded-pill"> Sup</button>
+    <div class="container-fluid">
+
+        <div class="row mt-5">
+
+            <!-- Main news --->
+            <div class="col-xl-12 col-md-12">
+
+                <h4 class="font-weight-bold"><strong>GALLERY </strong></h4>
+
+                <hr class="red title-hr">
+
+                <!-- Section: Group of personal cards --->
+                <section class="pt-2 mt-3 pb-3">
+
+                    <!-- Grid row --->
+                    <div class="row">
+                        {% for image in all_images %}
+                        <!-- Grid column --->
+                        <div class="col-md-6 col-lg-3">
+
+                            <!-- Card --->
+                            <div class="card card-personal mb-4">
+
+                                <!-- Card image --->
+                                <div class="view overlay">
+
+                                    <img class="card-img-top" src="{{ image.image.url }}">
+
+                                    <a href="#!">
+
+                                        <div class="mask rgba-white-slight"></div>
+
+                                    </a>
+
+                                </div>
+                                <!-- Card image --->
+
+                                <!-- Card content --->
+                                <div class="card-body">
+
+                                    <!-- Title --->
+                                    <a>
+
+                                        <h4 class="card-title"><strong>{{ image.name }} </strong></h4>
+
+                                    </a>
+
+                                    <a><span class="badge badge-default">{{ image.category }}</span></a>
+
+                                    <hr>
+
+                                    <a class="card-meta"><span><i class="fas fa-user pr-1"></i>{{ image.author }}</span></a>
+
+                                    <p class="card-meta float-right"><i class="fas fa-calendar"></i> {{ image.date }}</p>
+
+                                </div>
+                                <!-- Card content --->
+
+                            </div>
+                            <!-- Card --->
+
+                        </div>
+                        <!-- Grid column --->
+                        {% endfor %}
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
