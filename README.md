@@ -15,6 +15,19 @@ As a user of the application I should be able to:
 - Copy a link to the photo to share with my friends. :heavy_check_mark:
 - View photos based on the location they were taken. :heavy_check_mark:
 
+## Showcase
+Home page 
+
+![homepage](static/images/2021-10-11_20-28-Zoo-pictures.png)
+
+Category Search results
+
+![search results](static/images/2021-10-11_20-29-Zoo-pictures-2.png)
+
+Images by Location 
+
+![images by location](static/images/2021-10-11_20-30-Zoo-pictures-3.png)
+
 ## Live Site
 
 [link to deployed site](https://zoo-pictures.herokuapp.com/)
