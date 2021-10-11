@@ -77,5 +77,6 @@ jobs:
         export ALLOWED_HOSTS=".localhost, .herokuapp.com, .127.0.0.1"
         export DISABLE_COLLECTSTATIC=1
         export DEBUG=True
+        python manage.py migrate
         python manage.py test
 
