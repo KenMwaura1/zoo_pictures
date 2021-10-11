@@ -8,6 +8,7 @@ def home(request):
     all_images = Image.objects.all()
     all_locations = Location.objects.all()
     all_categories = Category.objects.all()
+    print(all_locations)
     return render(request, 'all-pictures/home.html', {'all_locations': all_locations, 'all_images': all_images,
                                                       'all_categories': all_categories})
 
@@ -26,4 +27,7 @@ def search(request):
 
 def location(request, location):
     all_images = Image.filter_by_location(location)
-    return render(request, 'all-pictures/location.html', {'all_images': all_images})
+    print(location)
+
+    print(all_images)
+    return render(request, 'all-pictures/location.html', {'all_images': all_images, 'location': location})
