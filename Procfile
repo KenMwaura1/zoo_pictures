@@ -1,1 +1,1 @@
-web: gunicorn z-tribune.wsgi
+web: gunicorn zoo-pictures.wsgi
